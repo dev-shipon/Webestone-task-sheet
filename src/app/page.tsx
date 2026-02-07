@@ -476,6 +476,8 @@ export default function Home() {
                                     agentName={currentUser?.name || ""}
                                     tasks={tasks}
                                     onUpdateTask={handleUpdateTask}
+                                    currentUserId={currentUser?.id || ""}
+                                    agents={agents}
                                 />
                             </motion.div>
                         )}

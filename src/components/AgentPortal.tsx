@@ -3,18 +3,20 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Shield, Briefcase, CheckCircle, Clock, AlertTriangle, CalendarDays, CalendarRange, Filter } from "lucide-react";
 import { useState, useMemo } from "react";
-import TaskCard, { Task, TaskStatus } from "./TaskCard";
+import TaskCard, { Task, TaskStatus, Agent } from "./TaskCard";
 import { cn } from "@/lib/utils";
 
 interface AgentPortalProps {
     agentName: string;
     tasks: Task[];
     onUpdateTask: (taskId: string, updates: Partial<Task>) => void;
+    currentUserId: string;
+    agents: Agent[];
 }
 
 type FilterPeriod = 'all' | 'weekly' | 'monthly';
 
-export default function AgentPortal({ agentName, tasks, onUpdateTask }: AgentPortalProps) {
+export default function AgentPortal({ agentName, tasks, onUpdateTask, currentUserId, agents }: AgentPortalProps) {
     const [period, setPeriod] = useState<FilterPeriod>('all');
 
     const agentTasks = useMemo(() => {
@@ -108,7 +110,9 @@ export default function AgentPortal({ agentName, tasks, onUpdateTask }: AgentPor
                                 key={task.id}
                                 task={task}
                                 onUpdate={onUpdateTask}
-                                isUserPortal={true}
+                                isAdminView={false}
+                                currentUserId={currentUserId}
+                                agents={agents}
                             />
                         ))}
                     </div>

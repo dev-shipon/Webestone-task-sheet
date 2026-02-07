@@ -20,7 +20,7 @@ export default function MissionControl({ onTaskDeploy, projects, agents }: {
         deadline: "",
         status: statuses[0],
         remarks: "",
-        submissionLink: "",
+        submissionLinks: [],
         submissionDate: "",
     });
 
@@ -46,7 +46,7 @@ export default function MissionControl({ onTaskDeploy, projects, agents }: {
             deadline: "",
             status: statuses[0],
             remarks: "",
-            submissionLink: "",
+            submissionLinks: [],
             submissionDate: "",
         });
     };

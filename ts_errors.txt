@@ -1,0 +1,4 @@
+﻿src/components/AgentPortal.tsx(111,33): error TS2322: Type '{ key: string; task: Task; onUpdate: (taskId: string, updates: Partial<Task>) => void; isUserPortal: boolean; }' is not assignable to type 'IntrinsicAttributes & TaskCardProps'.
+  Property 'isUserPortal' does not exist on type 'IntrinsicAttributes & TaskCardProps'.
+src/components/MissionControl.tsx(23,9): error TS2353: Object literal may only specify known properties, and 'submissionLink' does not exist in type 'Omit<Task, "id"> | (() => Omit<Task, "id">)'.
+src/components/MissionControl.tsx(49,13): error TS2353: Object literal may only specify known properties, and 'submissionLink' does not exist in type 'SetStateAction<Omit<Task, "id">>'.
