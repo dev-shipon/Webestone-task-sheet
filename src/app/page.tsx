@@ -710,7 +710,7 @@ export default function Home() {
                                                             <body>
                                                                 <div class="container">
                                                                     <div class="header">
-                                                                        <h1 class="logo">Webestone<span>ERP</span></h1>
+                                                                        <h1 class="logo">Webestone-<span>ERP</span></h1>
                                                                     </div>
                                                                     <div class="content">
                                                                         <div class="mission-header">
