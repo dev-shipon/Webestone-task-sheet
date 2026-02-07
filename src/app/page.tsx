@@ -678,31 +678,79 @@ export default function Home() {
                                                         to: assignedAgent.email,
                                                         subject: `New Task Assigned: ${newTask.title}`,
                                                         html: `
-                                                            <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-                                                                <div style="background-color: #2563eb; padding: 20px; text-align: center;">
-                                                                    <h1 style="color: #ffffff; margin: 0; font-size: 24px;">New Mission Assigned</h1>
-                                                                </div>
-                                                                <div style="padding: 30px;">
-                                                                    <p style="font-size: 16px; line-height: 1.5;">Hello <strong>${assignedAgent.name}</strong>,</p>
-                                                                    <p style="font-size: 16px; line-height: 1.5;">You have been assigned a new task on the Webestone ERP Station.</p>
-                                                                    
-                                                                    <div style="background-color: #f8fafc; border-left: 4px solid #2563eb; padding: 15px; margin: 20px 0;">
-                                                                        <p style="margin: 5px 0;"><strong>Task:</strong> ${newTask.title}</p>
-                                                                        <p style="margin: 5px 0;"><strong>Project:</strong> ${newTask.project}</p>
-                                                                        <p style="margin: 5px 0;"><strong>Deadline:</strong> ${newTask.deadline}</p>
-                                                                        <p style="margin: 5px 0;"><strong>Priority/Status:</strong> ${newTask.status}</p>
+                                                            <!DOCTYPE html>
+                                                            <html>
+                                                            <head>
+                                                                <meta charset="utf-8">
+                                                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                                <title>New Mission Assigned</title>
+                                                                <style>
+                                                                    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #334155; margin: 0; padding: 0; background-color: #f1f5f9; }
+                                                                    .container { max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+                                                                    .header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 40px; text-align: center; position: relative; overflow: hidden; }
+                                                                    .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #3b82f6, #06b6d4); }
+                                                                    .logo { font-size: 28px; font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: 3px; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+                                                                    .logo span { color: #3b82f6; }
+                                                                    .content { padding: 48px; background-color: #ffffff; }
+                                                                    .mission-header { text-align: center; margin-bottom: 40px; }
+                                                                    .mission-badge { display: inline-block; background: rgba(59, 130, 246, 0.1); color: #2563eb; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 16px; border-radius: 30px; border: 1px solid rgba(59, 130, 246, 0.2); margin-bottom: 24px; }
+                                                                    .title { font-size: 32px; font-weight: 800; color: #0f172a; margin: 0 0 16px 0; line-height: 1.2; letter-spacing: -1px; }
+                                                                    .subtitle { font-size: 16px; color: #64748b; font-weight: 500; }
+                                                                    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 40px 0; }
+                                                                    .stat-card { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; transition: all 0.2s; }
+                                                                    .stat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px; margin-bottom: 8px; display: block; }
+                                                                    .stat-value { font-size: 16px; font-weight: 700; color: #1e293b; display: block; }
+                                                                    .priority-high { color: #ef4444; }
+                                                                    .btn-container { text-align: center; margin-top: 48px; }
+                                                                    .btn { display: inline-block; background: #0f172a; color: #ffffff; text-decoration: none; padding: 18px 36px; border-radius: 12px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.2); }
+                                                                    .footer { background-color: #f1f5f9; padding: 32px; text-align: center; border-top: 1px solid #e2e8f0; }
+                                                                    .footer-text { font-size: 11px; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin: 8px 0; }
+                                                                </style>
+                                                            </head>
+                                                            <body>
+                                                                <div class="container">
+                                                                    <div class="header">
+                                                                        <h1 class="logo">Webestone<span>ERP</span></h1>
                                                                     </div>
-                                                                    
-                                                                    <p style="font-size: 14px; color: #666;">Please login to your portal to review the details and start working.</p>
-                                                                    
-                                                                    <div style="text-align: center; margin-top: 30px;">
-                                                                        <a href="https://task-sheet-webestone.vercel.app/" style="background-color: #2563eb; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Open Portal</a>
+                                                                    <div class="content">
+                                                                        <div class="mission-header">
+                                                                            <div class="mission-badge">Incoming Directive</div>
+                                                                            <h2 class="title">Mission Assigned</h2>
+                                                                            <p class="subtitle">Agent ${assignedAgent.name}, your objective is clear.</p>
+                                                                        </div>
+                                                                        
+                                                                        <div class="stat-card">
+                                                                            <span class="stat-label">Operation Objective</span>
+                                                                            <span class="stat-value" style="font-size: 18px;">${newTask.title}</span>
+                                                                        </div>
+
+                                                                        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 16px; display: grid;">
+                                                                            <div class="stat-card">
+                                                                                <span class="stat-label">Sector</span>
+                                                                                <span class="stat-value">${newTask.project}</span>
+                                                                            </div>
+                                                                            <div class="stat-card">
+                                                                                <span class="stat-label">Deadline</span>
+                                                                                <span class="stat-value" style="color: #ef4444;">${newTask.deadline}</span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="stat-card" style="margin-top: 16px;">
+                                                                            <span class="stat-label">Priority Level</span>
+                                                                            <span class="stat-value">${newTask.status}</span>
+                                                                        </div>
+
+                                                                        <div class="btn-container">
+                                                                            <a href="https://erp-webestone.vercel.app/" class="btn">Login to Terminal</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="footer">
+                                                                        <p class="footer-text">Secure Transmission • Webestone Station</p>
+                                                                        <p class="footer-text" style="opacity: 0.6;">System Auto-Gen ID: ${newTask.id}</p>
                                                                     </div>
                                                                 </div>
-                                                                <div style="background-color: #f1f5f9; padding: 15px; text-align: center; font-size: 12px; color: #94a3b8;">
-                                                                    <p>Webestone ERP Station • Automated Notification System</p>
-                                                                </div>
-                                                            </div>
+                                                            </body>
+                                                            </html>
                                                         `
                                                     })
                                                 });
